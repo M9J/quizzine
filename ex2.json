@@ -1,0 +1,67 @@
+[
+  {
+    "q": "Considering the alphabetical sequence of the English language, which specific letter immediately follows after the letter 'B'?",
+    "o": ["The subsequent letter is 'A'", "The subsequent letter is 'C'", "The subsequent letter is 'D'", "The subsequent letter is 'E'"],
+    "a": 1
+  },
+  {
+    "q": "What would be the mathematical result when you multiply the integer 3 by itself, which in mathematical terms means calculating the product of 3 times 3?",
+    "o": ["The resulting product is eight", "The resulting product is nine", "The resulting product is ten", "The resulting product is eleven"],
+    "a": 1
+  },
+  {
+    "q": "In what specific type of natural environment would you typically encounter a camel, which is an animal renowned for its extraordinary ability to endure arid and desert-like conditions for extended periods?",
+    "o": ["Camels are found in forests", "Camels are found in mountains", "Camels are found in deserts", "Camels are found in grasslands"],
+    "a": 2
+  },
+  {
+    "q": "According to ancient Greek mythology, which deity was regarded as the god of the sea, often depicted wielding a powerful trident and having the ability to cause earthquakes?",
+    "o": ["The god of the sea is Zeus", "The god of the sea is Hades", "The god of the sea is Apollo", "The god of the sea is Poseidon"],
+    "a": 3
+  },
+  {
+    "q": "In the cycle of the four seasons that occur throughout the year, which particular season directly follows after spring and comes before autumn?",
+    "o": [
+      "The season that follows spring is winter",
+      "The season that follows spring is summer",
+      "The season that follows spring is spring",
+      "The season that follows spring is autumn"
+    ],
+    "a": 1
+  },
+  {
+    "q": "In human anatomy, what is the widely recognized term for the central skeletal structure that serves as the main support for the body and encases the spinal cord?",
+    "o": [
+      "The central support structure is the femur",
+      "The central support structure is the skull",
+      "The central support structure is the spine",
+      "The central support structure is the ribs"
+    ],
+    "a": 2
+  },
+  {
+    "q": "Which chemical element, represented by the symbol 'O' on the periodic table, is essential for respiration and is a fundamental component for sustaining life in most living organisms?",
+    "o": ["The element is hydrogen", "The element is oxygen", "The element is carbon", "The element is nitrogen"],
+    "a": 1
+  },
+  {
+    "q": "In the field of human biology, what is the primary organ that is responsible for pumping blood throughout the body, thereby maintaining the circulation necessary for sustaining life?",
+    "o": ["The primary organ is the lungs", "The primary organ is the liver", "The primary organ is the heart", "The primary organ is the kidneys"],
+    "a": 2
+  },
+  {
+    "q": "Which continent, situated primarily in the Southern Hemisphere, is known for encompassing the world's largest rainforest, the Amazon, and is rich in biodiversity and natural resources?",
+    "o": ["The continent is Africa", "The continent is Asia", "The continent is South America", "The continent is Australia"],
+    "a": 2
+  },
+  {
+    "q": "In the domain of computer science and technology, what does the acronym 'CPU' stand for, which is commonly referred to as the 'brain' of the computer responsible for executing instructions?",
+    "o": [
+      "The acronym stands for Central Processing Unit",
+      "The acronym stands for Computer Peripheral Unit",
+      "The acronym stands for Control Power Unit",
+      "The acronym stands for Central Program Unit"
+    ],
+    "a": 0
+  }
+]

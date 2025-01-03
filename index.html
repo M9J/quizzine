@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizzine</title>
+    <script src="quizzine.js" type="module"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="custom-scrollbar.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="qna-container custom-scrollbar">
+        <div class="qna">
+          <div class="question" id="question"></div>
+          <div class="options" id="options"></div>
+        </div>
+      </div>
+      <div class="action-container" id="action-container">
+        <div class="progress-container">
+          <button class="prev" id="prev"><div class="left-arrow"></div></button>
+          <div class="question-number" id="question-number"></div>
+          <button class="next" id="next"><div class="right-arrow"></div></button>
+        </div>
+        <button class="submit" id="submit">FINISH</button>
+      </div>
+    </div>
+    <div class="alert-overlay" id="alert-overlay">
+      <div class="alert" id="alert"></div>
+    </div>
+  </body>
+</html>
