@@ -17,7 +17,7 @@ if (isQuestionShown) {
   showNavigationButtons();
   submitButton.onclick = () => onSubmitClick();
   nextButton.onclick = () => showNextQuestion();
-  prevButton.onclick = () => showPrevQuestion();
+  prevButton.onclick = () => showPreviousQuestion();
   body.onkeydown = (kev) => handleCustomKeypress(kev);
 }
 
