@@ -1,6 +1,8 @@
 :root {
   --default-border-radius: 8px;
   --default-box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.1);
+  --default-font-family: segoe ui, sans-serif;
+  --default-font-size: clamp(2vh, 2vw + 1rem, 3vh);
 }
 
 * {
@@ -16,13 +18,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: var(--default-font-family);
 }
 
 .container {
   flex: 1;
   display: flex;
   flex-direction: column;
-  max-width: 720px;
+  max-width: clamp(720px, 50%, 50%); /* Responsive max-width */
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
@@ -73,14 +76,14 @@ body {
 
 .question {
   padding: 24px;
-  font-size: 24px;
+  font-size: var(--default-font-size);
   text-align: center;
   font-weight: 900;
 }
 
 .options {
   flex: 1;
-  font-size: 24px;
+  font-size: var(--default-font-size);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -136,13 +139,6 @@ body {
   align-items: center;
 }
 
-.current {
-  font-weight: 900;
-  font-size: 24px;
-  box-sizing: border-box;
-  opacity: 1;
-}
-
 .left-arrow {
   width: 0;
   height: 0;
@@ -180,12 +176,13 @@ body {
   padding: 0 24px;
   min-width: 48px;
   text-align: center;
+  font-size: var(--default-font-size);
 }
 
 .alert {
   padding: 24px;
   box-shadow: var(--default-box-shadow);
-  font-size: 24px;
+  font-size: var(--default-font-size);
   position: relative;
   border-radius: var(--default-border-radius);
   z-index: 999;
@@ -211,7 +208,7 @@ body {
 }
 
 .result {
-  font-size: 48px;
+  font-size: 6vh;
 }
 
 .option-label input[type="radio"] {
