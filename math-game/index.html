@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Game</title>
+    <link rel="stylesheet" href="math-game.css" />
+    <script type="module" src="math-game.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="time-remaining" id="time-remaining">--</div>
+      <div class="problem">
+        <div class="var-left" id="var-left">3</div>
+        <div class="var-oper" id="var-oper">+</div>
+        <div class="var-right" id="var-right">4</div>
+      </div>
+      <div class="options">
+        <div class="opt-left">
+          <div class="key" id="key-left">6</div>
+        </div>
+        <div class="opt-center">
+          <div class="key" id="key-top">7</div>
+          <div class="key" id="key-bottom">8</div>
+        </div>
+        <div class="opt-right">
+          <div class="key" id="key-right">9</div>
+        </div>
+      </div>
+      <div class="current-score" id="current-score">0</div>
+    </div>
+    <div class="alert-overlay" id="alert-overlay">
+      <div class="alert" id="alert"></div>
+    </div>
+  </body>
+</html>
