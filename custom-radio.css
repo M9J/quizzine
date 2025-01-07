@@ -1,0 +1,47 @@
+.custom-radio input[type="radio"] {
+  position: relative;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radio-mark {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  min-height: 24px;
+  min-width: 24px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: 16px;
+  border: 2px solid black;
+}
+
+.custom-radio:hover input ~ .radio-mark {
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1) inset;
+  border-color: #0075ff;
+}
+
+.custom-radio input:checked ~ .radio-mark {
+  background-color: #0075ff;
+}
+
+.radio-mark:after {
+  content: "";
+  position: relative;
+  display: none;
+}
+
+.custom-radio input:checked ~ .radio-mark:after {
+  display: block;
+}
+
+.custom-radio .radio-mark::after {
+  top: 6px;
+  left: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: white;
+}

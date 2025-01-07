@@ -3,5 +3,10 @@
     "q": "Which letter comes after 'A'?",
     "o": ["B", "C", "D", "E"],
     "a": 0
+  },
+  {
+    "q": "Which letters comes between 'A' and 'D'?",
+    "o": ["B", "C", "D", "E"],
+    "a": [0, 1]
   }
 ]

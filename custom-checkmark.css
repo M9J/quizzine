@@ -1,0 +1,51 @@
+.custom-checkmark input[type="checkbox"] {
+  position: relative;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.check-mark {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  min-height: 24px;
+  min-width: 24px;
+  background-color: #fff;
+  border-radius: 0px;
+  overflow: hidden;
+  margin-right: 16px;
+  border: 2px solid black;
+}
+
+.custom-checkmark:hover input ~ .check-mark {
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1) inset;
+  border-color: #0075ff;
+}
+
+.custom-checkmark input:checked ~ .check-mark {
+  background-color: #0075ff;
+}
+
+.check-mark:after {
+  content: "";
+  position: relative;
+  display: none;
+}
+
+.custom-checkmark input:checked ~ .check-mark:after {
+  display: block;
+}
+
+.custom-checkmark .check-mark::after {
+  content: "";
+  width: 6px;
+  height: 12px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  transform: rotate(45deg);
+}

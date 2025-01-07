@@ -43,7 +43,7 @@ async function choosePreviousOption() {
 }
 
 async function chooseOption(isPrev = false) {
-  const options = document.getElementsByClassName("option-radio");
+  const options = document.getElementsByClassName("option");
   const q = qnaSet[currentQuestion];
   let currentlySelectedOptionIndex = q.selectedOptionIndex;
   if (currentlySelectedOptionIndex === null) {
@@ -55,7 +55,9 @@ async function chooseOption(isPrev = false) {
       q.selectedOptionIndex = 0;
     }
   } else {
-    const isPossible = isPrev ? currentlySelectedOptionIndex - 1 > -1 : currentlySelectedOptionIndex + 1 < options.length;
+    const isPossible = isPrev
+      ? currentlySelectedOptionIndex - 1 > -1
+      : currentlySelectedOptionIndex + 1 < options.length;
     if (isPossible) {
       if (isPrev) {
         options[currentlySelectedOptionIndex - 1].click();
@@ -95,24 +97,43 @@ async function showQuestion(qnum) {
     optionsElem.innerHTML = "";
     for (const o of question.o) {
       const option = document.createElement("input");
-      option.type = "radio";
+      const label = document.createElement("label");
+      const text = document.createElement("span");
+      const customRadioMark = document.createElement("span");
+      const answers = question.a;
+      const isArr = Array.isArray(answers) ? answers.length > 0 : false;
+      if (isArr) {
+        option.type = "checkbox";
+        label.classList.add("custom-checkmark");
+        customRadioMark.classList.add("check-mark");
+      } else {
+        option.type = "radio";
+        label.classList.add("custom-radio");
+        customRadioMark.classList.add("radio-mark");
+      }
+      option.classList.add("option");
       option.name = "q" + qnum;
       option.value = o;
       option.id = o;
-      option.classList.add("option-radio");
       option.tabIndex = 0;
-      option.onclick = () => {
-        question.selected = o;
-        checkForCompleteness();
-      };
-      option.checked = question.selected === o;
-      const label = document.createElement("label");
-      const text = document.createElement("span");
+      option.checked = (() => {
+        let isChecked = false;
+        if (isArray(question.a)) {
+          if (isArray(question.selected)) {
+            isChecked = question.selected.includes(o);
+          }
+        } else {
+          isChecked = question.selected === o;
+        }
+        return isChecked;
+      })();
+      option.onclick = () => onOptionClick(question, o);
       text.innerHTML = o;
       text.classList.add("option-text");
       label.setAttribute("for", o);
       label.classList.add("option-label");
       label.appendChild(option);
+      label.appendChild(customRadioMark);
       label.appendChild(text);
       optionsElem.appendChild(label);
     }
@@ -121,6 +142,27 @@ async function showQuestion(qnum) {
     questionElem.innerHTML = `Question not found! Please check the question number given.`;
     return false;
   }
+}
+
+function isArray(o) {
+  let isArr = false;
+  if (o) {
+    isArr = Array.isArray(o) ? o.length > 0 : false;
+  }
+  return isArr;
+}
+
+function onOptionClick(question, o) {
+  const isArr = isArray(question.a) ? question.a.length > 0 : false;
+  if (isArr) {
+    if (!question.selected) question.selected = [];
+    if (question.selected.includes(o)) {
+      question.selected = question.selected.filter((v) => v != o);
+    } else question.selected.push(o);
+  } else {
+    question.selected = o;
+  }
+  checkForCompleteness();
 }
 
 async function checkForCompleteness() {
@@ -174,7 +216,22 @@ async function fetchQuestionSets() {
 async function onSubmitClick() {
   const correctAnswers = [];
   for (const q of qnaSet) {
-    if (q.selected === q.o[q.a]) correctAnswers.push(q);
+    if (isArray(q.a)) {
+      let isMultipleCorrect = true;
+      if (isArray(q.a) && isArray(q.selected)) {
+        for (const i of q.a) {
+          const opt = q.o[i];
+          const sel = q.selected[i];
+          if (!sel === opt) {
+            isMultipleCorrect = false;
+            break;
+          }
+        }
+      }
+      if (isMultipleCorrect) correctAnswers.push(q);
+    } else {
+      if (q.selected === q.o[q.a]) correctAnswers.push(q);
+    }
   }
   const perc = ((correctAnswers.length / qnaSet.length) * 100).toFixed(2);
   const message = `Correct: ${correctAnswers.length}, Total: ${qnaSet.length}<br/><span class="result">${perc}%</span>`;
