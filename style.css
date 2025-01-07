@@ -97,7 +97,7 @@ body {
 .option-label {
   cursor: pointer;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   padding: 8px;
 }
 
