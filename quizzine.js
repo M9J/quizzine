@@ -222,7 +222,7 @@ async function onSubmitClick() {
         for (const i of q.a) {
           const opt = q.o[i];
           const sel = q.selected[i];
-          if (!sel === opt) {
+          if (!(sel === opt)) {
             isMultipleCorrect = false;
             break;
           }
